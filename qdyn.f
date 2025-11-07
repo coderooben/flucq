@@ -373,7 +373,7 @@ c           to prevent problems when rmat is NaN
             bdrssq(ibin) = bdrssq(ibin) + solve(imol)**2
             nbdr(ibin) = nbdr(ibin) + 1
  1590    continue
-      endif	
+      endif
 c***********************************************************************
 c     Rescale the real velocities if necessary.  If the system has
 c     equilibrated sufficiently, then unset the velocity-scaling flag.

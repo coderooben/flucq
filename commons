@@ -31,7 +31,7 @@
       common/cutoff/spline,spldrv
 c$$$      common/debug/ebit(10)
 c$$$      common/debug/qpeter, qpetra
-	common/debug/ebit(10,nmass)
+      common/debug/ebit(10,nmass)
 c$$$      common/debug/nrprE(maxbin, mxrdiv), 
 c$$$     $     ebit(10),
 c$$$     $     nrat1f, nrat2f, nrat1i,
