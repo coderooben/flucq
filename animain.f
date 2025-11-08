@@ -29,21 +29,21 @@ c***********************************************************************
 c$$$      write(filnam, *) 'animat.in'
       write(filnam, '(a)') 'animat.in'
       open(iutmp, file = filnam, err = 9980, iostat = ioval)
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) fildir
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) datdir
-      read(iutmp, *, err = 9980, end = 9991, iostat = ival) nsuff
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) fildir
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) datdir
+      read(iutmp, *, err = 9990, end = 9991, iostat = ival) nsuff
       if (nsuff .gt. mdatfl) then
          write(iuout, *) 'animat: maximum number of data files ',
      $        '(mdatfl) exceeded'
       endif
       do 200 idatfl = 1, nsuff
-         read(iutmp, *, err = 9980, end = 9991, iostat = ioval) 
+         read(iutmp, *, err = 9990, end = 9991, iostat = ioval)
      $        suffl(idatfl)
  200  continue
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) nsqint
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) startt
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) stopt
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) bfrac
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) nsqint
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) startt
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) stopt
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) bfrac
       close(iutmp)
       bfrac = bfrac ** (1.0d0 / 3)
 c***********************************************************************
