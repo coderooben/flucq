@@ -104,7 +104,7 @@ c***********************************************************************
      $           'constant - can''t use Jisol'
             stop
          endif
-         J = trmdj(imty1,imind1,imind2)
+         dJdr = trmdj(imty1,imind1,imind2)
 c***********************************************************************
 c     Case 3: general dJ/dr, stored in dJdat array.  evaluate using the
 c     canned cubic spline interpolation routine.  remember that
