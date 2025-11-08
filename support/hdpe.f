@@ -273,7 +273,7 @@ c***********************************************************************
             alowan = rlowan
             alowr = rocl
          endif
-         write(10, '(\)')
+         write(10, '(/)')
          write(11, *) rocl, rlowan * 180.d0 / pi, rlowe * fjm2kc, rlowdr
   340 continue
       write(iuout, '(a,f9.3,a,f6.3,a,f6.1,a)') 'lowest energy: ', 
