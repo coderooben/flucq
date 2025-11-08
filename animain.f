@@ -147,7 +147,7 @@ c     data file should be used, starting with this timestep:
 c***********************************************************************
          if (niters .ge. istop) then
             write(iuout, *) suffl(idatfl)(1:index(suffl(idatfl),' ')),
-     $           'crashed near t =', istop * dt
+     $           'crashed near t =', istop * dtbig
             go to 1100
          endif
 c***********************************************************************
