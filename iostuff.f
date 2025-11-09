@@ -717,7 +717,7 @@ c
       include 'genpar'
       include 'commons'
 c
-      character ctemp*30
+c$$$      character ctemp*30
 c
 c$$$      write(filnam,*) scrdir, '/anneal.', suffix
 c$$$      open(8, file = filnam, form = 'unformatted', err = 9990,
