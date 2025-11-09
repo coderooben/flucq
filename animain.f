@@ -105,7 +105,7 @@ c***********************************************************************
             if (ioval .eq. -1) then
                go to 9991
             endif
-            istop = rio(8 * natoms + 5)
+            istop = int(rio(8 * natoms + 5))
             close(iutmp)
          else
             istop = ibigp
@@ -131,7 +131,7 @@ c***********************************************************************
          do 760 iatom = 1,natoms
             q(iatom) = rio(6 * natoms + iatom)
  760     continue
-         niters = rio(8 * natoms + 5)
+         niters = int(rio(8 * natoms + 5))
          if (pbflag) then 
             call foldr(imixed)
          else
