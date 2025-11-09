@@ -112,7 +112,8 @@ c***********************************************************************
      .        qifile
          open(iutmp, file = filnam, err = 9990, iostat = ioval)
          do 600 iatom = 1, natoms
-            read(iutmp, *) jatom, ityp, imol, temp
+            read(iutmp, *, err = 9970, end = 9980, iostat = ioval)
+     $           jatom, ityp, imol, temp
             if (jatom .ne. iatom) then
                write(iuout, *) 'atom ', iatom, ' != ', jatom
                stop
