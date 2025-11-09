@@ -137,6 +137,7 @@ c
       subroutine ioerr(ioval)
 c
       include 'implic'
+      include 'genpar'
 c
       if (ioval .eq. -1) then
          write(iuout, *) 'IOSTAT = ', ioval, ', End of file'
