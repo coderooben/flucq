@@ -114,7 +114,7 @@ c***********************************************************************
          do 600 iatom = 1, natoms
             read(iutmp, *) jatom, ityp, imol, temp
             if (jatom .ne. iatom) then
-               write(isterr, *) 'atom ', iatom, ' != ', jatom
+               write(iuout, *) 'atom ', iatom, ' != ', jatom
                stop
             endif
             q(iatom) = temp
