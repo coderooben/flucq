@@ -412,6 +412,7 @@ c
      .     xval, yval, njunk)
 c
       include 'implic'
+      include 'genpar'
       include 'qpar'
 c
       real*8 xvec(numbin), ygrid(numbin), coeffs(numbin)
