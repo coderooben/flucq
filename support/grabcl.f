@@ -25,7 +25,7 @@ c***********************************************************************
 c     Read in the input file grabcl.in
 c***********************************************************************
       write(filnam, '(a)') 'grabcl.in'
-      open(iutmp, file = filnam, err = 9970, iostat = ioval)
+      open(iutmp, file = filnam, err = 9990, iostat = ioval)
       read(iutmp, *, err = 9970, end = 9960, iostat = ioval) datdir
       read(iutmp, *, err = 9970, end = 9960, iostat = ioval) eorfl
       read(iutmp, *, err = 9970, end = 9960, iostat = ioval) outfil
@@ -159,28 +159,28 @@ c***********************************************************************
       open(iutmp2, file = filnam, err = 9990, iostat = ioval)
       read(iutmp, *, end = 9960, err = 9970, iostat = ioval)
      $     ijunk
-      write(iutmp2, *, err = 9970, iostat = ioval)
+      write(iutmp2, *, err = 9980, iostat = ioval)
      $     ijunk
       read(iutmp, *, end = 9960, err = 9970, iostat = ioval)
      $     rjunk, rjunk, rjunk
-      write(iutmp2, *, err = 9970, iostat = ioval)
+      write(iutmp2, *, err = 9980, iostat = ioval)
      $     (boxsiz(i), i = 1, 3)
       read(iutmp, *, end = 9960, err = 9970, iostat = ioval)
      $     ijunk
-      write(iutmp2, *, err = 9970, iostat = ioval)
+      write(iutmp2, *, err = 9980, iostat = ioval)
      $     nclmol
       do 400 imol = 1, nmol
          read(iutmp, *, end = 9960, err = 9970, iostat = ioval)
      $        ijunk1, ijunk2, nfrtmp, ntatmp
          if (incl(imol)) then
             icount = icount + 1
-            write(iutmp2, *, err = 9970, iostat = ioval)
+            write(iutmp2, *, err = 9980, iostat = ioval)
      $           icount, ijunk2, nfrtmp, ntatmp
          endif
          read(iutmp, *, end = 9960, err = 9970, iostat = ioval)
      $        ijunk1, ijunk2
          if (incl(imol)) then
-            write(iutmp2, *, err = 9970, iostat = ioval)
+            write(iutmp2, *, err = 9980, iostat = ioval)
      $           ijunk1, ijunk2
          endif
          read(iutmp, *, end = 9960, err = 9970, iostat = ioval)
@@ -192,7 +192,7 @@ c***********************************************************************
             dxinc = -1 * dnint(dx / boxsiz(1)) * boxsiz(1)
             dyinc = -1 * dnint(dy / boxsiz(2)) * boxsiz(2)
             dzinc = -1 * dnint(dz / boxsiz(3)) * boxsiz(3)
-            write(iutmp2, *, err = 9970, iostat = ioval)
+            write(iutmp2, *, err = 9980, iostat = ioval)
      $           x + dxinc + dxs, y + dyinc + dys, z + dzinc + dzs
          endif
          read(iutmp, *, end = 9960, err = 9970, iostat = ioval)
@@ -203,13 +203,13 @@ c***********************************************************************
             read(iutmp, *, end = 9960, err = 9970, iostat = ioval)
      $           ijunk1, ijunk2
             if (incl(imol)) then
-               write(iutmp2, *, err = 9970, iostat = ioval)
+               write(iutmp2, *, err = 9980, iostat = ioval)
      $              ijunk1, ijunk2
             endif
             read(iutmp, *, end = 9960, err = 9970, iostat = ioval)
      $           x, y, z
             if (incl(imol)) then
-               write(iutmp2, *, err = 9970, iostat = ioval)
+               write(iutmp2, *, err = 9980, iostat = ioval)
      $              x + dxinc + dxs, y + dyinc + dys, z + dzinc + dzs
             endif
             read(iutmp, *, end = 9960, err = 9970, iostat = ioval)
@@ -221,7 +221,7 @@ c***********************************************************************
             read(iutmp, *, end = 9960, err = 9970, iostat = ioval)
      $           ijunk1, ijunk2
             if (incl(imol)) then
-               write(iutmp2, *, err = 9970, iostat = ioval)
+               write(iutmp2, *, err = 9980, iostat = ioval)
      $              ijunk1, ijunk2
             endif
             read(iutmp, *, end = 9960, err = 9970, iostat = ioval)
