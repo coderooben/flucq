@@ -162,7 +162,7 @@ c$$$     $     defq(maxaty)
      $     moving, first,
      $     lclose(maxmol,maxmol)
       logical frzflg, vscflg, qvscfl
-      common/temps/T, Ttol, qT, qTrang, rketmp, rktsum, rktssq, 
+      common/temps/T, Ttol, qT, qTrang, rketmp, rktsum, rktssq, qsys,
      $     rcmtmp,
      $     drudet,
      $     stint,
