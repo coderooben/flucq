@@ -109,7 +109,7 @@ c
       do 200 iit = 1, itmax
          rm = iit
          twom = rm + rm
-         d = rm * (b - m) * x / ((asub1 + twom) * (a + twom))
+         d = rm * (b - rm) * x / ((asub1 + twom) * (a + twom))
          Anext = Acurr + d * Aold
          Bnext = Bcurr + d * Bold
          d = -(a + rm) * (aplusb + rm) * x / 
