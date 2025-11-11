@@ -562,8 +562,6 @@ c
       include 'genpar'
       include 'commons'
 c
-      real*8 J
-c
       integer ipvt(mxatml)
       real*8  cvec(mxatml),
      $        qarr(mxatml,mxatml)
