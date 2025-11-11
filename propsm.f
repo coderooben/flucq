@@ -91,41 +91,41 @@ c     Read in the input file props.in
 c***********************************************************************
       write(filnam, '(a)') 'props.in'
       open(iutmp, file = filnam, err = 9980, iostat = ioval)
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) fildir
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) datdir
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) eopflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) fildir
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) datdir
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) eopflg
       if (eopflg) then
-         read(iutmp, *, err = 9980, end = 9991, iostat = ioval)
+         read(iutmp, *, err = 9990, end = 9991, iostat = ioval)
      $        eopfil
       endif
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) nsuff 
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) nsuff 
       if (nsuff .gt. mdatfl) then
          write(iuout, *) 'props: maximum number of data files ',
      $        '(mdatfl) exceeded'
          stop
       endif
       do 200 idatfl = 1, nsuff
-         read(iutmp, *, err = 9980, end = 9991, iostat = ioval)
+         read(iutmp, *, err = 9990, end = 9991, iostat = ioval)
      $        suffl(idatfl)
   200 continue
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) nsqint
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) trcflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) qbnflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) angflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) gorflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) gqrflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) gcmflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) gzflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) mzflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) trsflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) clsflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) rgyflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) corflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) pesflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) smuflg
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) 
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) nsqint
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) trcflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) qbnflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) angflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) gorflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) gqrflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) gcmflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) gzflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) mzflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) trsflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) clsflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) rgyflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) corflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) pesflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) smuflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) 
      $     snpflg, snptim
-      read(iutmp, *, err = 9980, end = 9991, iostat = ioval) msdflg
+      read(iutmp, *, err = 9990, end = 9991, iostat = ioval) msdflg
       close(iutmp)
 c***********************************************************************
 c     Open the output files:
@@ -555,14 +555,14 @@ c***********************************************************************
   546    continue
          write(filnam, '(a)') 'gdata.in'
          open(iutmp, file = filnam, err = 9980, iostat = ioval)
-         read(iutmp, *, err = 9980, end = 9991, iostat = ioval) iovers
+         read(iutmp, *, err = 9990, end = 9991, iostat = ioval) iovers
          if (iovers .ne. iomodv) then
             write(iuout, *) 'rdmodb:  gdata and models versions are ',
      $           'incompatible'
             stop
          endif
   547    continue
-         read(iutmp, *, err = 9980, end = 550, iostat = ioval)
+         read(iutmp, *, err = 9990, end = 550, iostat = ioval)
      $        imid1, imid2, trnbr
          if (hasmid(imid1) .and. hasmid(imid2)) then
             if (.not. trsflg) then
