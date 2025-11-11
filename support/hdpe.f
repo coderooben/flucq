@@ -20,7 +20,7 @@ c
       logical   knwmid(maxmid), 
      $          getnr, getfar, getlt, gethvy, gete, anaflg
 c
-      real*8 J
+c$$$      real*8 J
 c
 c***********************************************************************
 c     Initialize some stuff:
