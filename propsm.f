@@ -233,8 +233,8 @@ c$$$  fpby3v = 4. * pi / (3. * vol)
       zbwi = 1.d0 / zbw
       if (qbnflg) then
          do 400 ityp1 = 1, naty
-            qbwi(ityp1) = 1.0d0 / ((qhighg(ideaty(ityp1)) -
-     $           qlowg(ideaty(ityp1))) / maxbin)
+            qbwi(ityp1) = sngl(1.0d0 / ((qhighg(ideaty(ityp1)) -
+     $           qlowg(ideaty(ityp1))) / maxbin))
   400    continue
       endif
       if (gorflg) then
@@ -566,11 +566,11 @@ c***********************************************************************
      $        imid1, imid2, trnbr
          if (hasmid(imid1) .and. hasmid(imid2)) then
             if (.not. trsflg) then
-               rnbr(mtymid(imid1),mtymid(imid2)) = trnbr * 1.
-               rnbr(mtymid(imid2),mtymid(imid1)) = trnbr * 1.
+               rnbr(mtymid(imid1),mtymid(imid2)) = sngl(trnbr * 1.)
+               rnbr(mtymid(imid2),mtymid(imid1)) = sngl(trnbr * 1.)
             else
-               rnbr(mtymid(imid1),mtymid(imid2)) = trnbr
-               rnbr(mtymid(imid2),mtymid(imid1)) = trnbr
+               rnbr(mtymid(imid1),mtymid(imid2)) = sngl(trnbr)
+               rnbr(mtymid(imid2),mtymid(imid1)) = sngl(trnbr)
             endif
          endif
          go to 547
@@ -869,14 +869,14 @@ c              Calculate the center of mass of the molecule
                   imind = imamol(imty,imaind)
                   iatom = iatmol(imol,imind)
                   iaty = iatype(imty,imind)
-                  com(1) = com(1) + atmass(iaty) * pos(iatom,1)
-                  com(2) = com(2) + atmass(iaty) * pos(iatom,2)
-                  com(3) = com(3) + atmass(iaty) * pos(iatom,3)
+                  com(1) = sngl(com(1) + atmass(iaty) * pos(iatom,1))
+                  com(2) = sngl(com(2) + atmass(iaty) * pos(iatom,2))
+                  com(3) = sngl(com(3) + atmass(iaty) * pos(iatom,3))
                   rmlmas = rmlmas + atmass(iaty)
  800           continue
-               com(1) = com(1) / rmlmas
-               com(2) = com(2) / rmlmas
-               com(3) = com(3) / rmlmas
+               com(1) = sngl(com(1) / rmlmas)
+               com(2) = sngl(com(2) / rmlmas)
+               com(3) = sngl(com(3) / rmlmas)
                if (lnwbas) then
                   basmsd(imol,nmsdba,1) = com(1)
                   basmsd(imol,nmsdba,2) = com(2)
@@ -914,7 +914,7 @@ c***********************************************************************
                      imty2 = molty(imol2)
                      call pbrhd(imol1, imol2, dxinc, dyinc, 
      $                    dzinc, nfold)
-                     rsep(imol1,imol2) = rmat(1,1)
+                     rsep(imol1,imol2) = sngl(rmat(1,1))
                      if (trsflg .or. clsflg .or. corflg 
      $                    .or. gzflg) then
                         if (rmat(1,1) .lt. rnbr(imty1,imty2)) then
@@ -1186,15 +1186,15 @@ c***********************************************************************
                      imind = imamol(imty,imaind)
                      iatom = iatmol(imol,imind)
                      iaty = iatype(imty,imind)
-                     com(1) = com(1) + atmass(iaty) * pos(iatom,1)
-                     com(2) = com(2) + atmass(iaty) * pos(iatom,2)
-                     com(3) = com(3) + atmass(iaty) * pos(iatom,3)
+                     com(1) = sngl(com(1) + atmass(iaty) * pos(iatom,1))
+                     com(2) = sngl(com(2) + atmass(iaty) * pos(iatom,2))
+                     com(3) = sngl(com(3) + atmass(iaty) * pos(iatom,3))
                      clmass = clmass + atmass(iaty)
  1730             continue
  1740          continue
-               com(1) = com(1) / clmass
-               com(2) = com(2) / clmass
-               com(3) = com(3) / clmass
+               com(1) = sngl(com(1) / clmass)
+               com(2) = sngl(com(2) / clmass)
+               com(3) = sngl(com(3) / clmass)
             endif
 c***********************************************************************
 c     now get the g(r) of all cluster atoms to this center of mass:
@@ -1271,23 +1271,23 @@ c     for the radius of gyration and density profile, use the real
 c     center of mass:
 c***********************************************************************
             if ((rgyflg .and. .not. pbflag) .or. gzflg) then
-               com(1) = com(1) * clmass
-               com(2) = com(2) * clmass
-               com(3) = com(3) * clmass
+               com(1) = sngl(com(1) * clmass)
+               com(2) = sngl(com(2) * clmass)
+               com(3) = sngl(com(3) * clmass)
                imol = 1
                imty = molty(imol)
                do 1792 imaind = 1, nmamol(imty)
                   imind = imamol(imty,imaind)
                   iatom = iatmol(imol,imind)
                   iaty = iatype(imty,imind)
-                  com(1) = com(1) + atmass(iaty) * pos(iatom,1)
-                  com(2) = com(2) + atmass(iaty) * pos(iatom,2)
-                  com(3) = com(3) + atmass(iaty) * pos(iatom,3)
-                  clmass = clmass + atmass(iaty)
+                  com(1) = sngl(com(1) + atmass(iaty) * pos(iatom,1))
+                  com(2) = sngl(com(2) + atmass(iaty) * pos(iatom,2))
+                  com(3) = sngl(com(3) + atmass(iaty) * pos(iatom,3))
+                  clmass = sngl(clmass + atmass(iaty))
  1792          continue
-               com(1) = com(1) / clmass
-               com(2) = com(2) / clmass
-               com(3) = com(3) / clmass
+               com(1) = sngl(com(1) / clmass)
+               com(2) = sngl(com(2) / clmass)
+               com(3) = sngl(com(3) / clmass)
 c$$$               write(30, *) niters * dtbig, (com(i), i = 1,3)
             endif
 c***********************************************************************
@@ -1360,14 +1360,20 @@ c***********************************************************************
                imty = molty(imol)
                do 1800 iqind = 1, nqmol(imty)
                   iatom = iatmol(imol,iqmol(imty,iqind))
-                  rmu(imol,1) = rmu(imol,1) + q(iatom) * fldpos(iatom,1)
-                  rmu(imol,2) = rmu(imol,2) + q(iatom) * fldpos(iatom,2)
-                  rmu(imol,3) = rmu(imol,3) + q(iatom) * fldpos(iatom,3)
+                  rmu(imol,1) = sngl(rmu(imol,1) +
+     $                 q(iatom) * fldpos(iatom,1))
+                  rmu(imol,2) = sngl(rmu(imol,2) +
+     $                 q(iatom) * fldpos(iatom,2))
+                  rmu(imol,3) = sngl(rmu(imol,3) +
+     $                 q(iatom) * fldpos(iatom,3))
  1800          continue
                ihead = iatmol(imol,iqmol(imty,1))
-               rmu(imol,1) = rmu(imol,1) - qmol(imty) * fldpos(ihead,1)
-               rmu(imol,2) = rmu(imol,2) - qmol(imty) * fldpos(ihead,2)
-               rmu(imol,3) = rmu(imol,3) - qmol(imty) * fldpos(ihead,3)
+               rmu(imol,1) = sngl(rmu(imol,1) -
+     $              qmol(imty) * fldpos(ihead,1))
+               rmu(imol,2) = sngl(rmu(imol,2) -
+     $              qmol(imty) * fldpos(ihead,2))
+               rmu(imol,3) = sngl(rmu(imol,3) -
+     $              qmol(imty) * fldpos(ihead,3))
                rmumin(imol) = sqrt(rmu(imol,1) ** 2 +
      $              rmu(imol,2) ** 2 + rmu(imol,3) ** 2)
  1810       continue
