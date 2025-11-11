@@ -151,7 +151,7 @@ c     $           rbsinv / dt, stinef(ibatch) * dt, rmovav
       stinef(1) = 1.d0
       do 500 ibatch = 1, nbatch
          winwid =2.d0 * sqrt(dble(ibsize(ibatch)))
-         iwinlo = ibatch - winwid / 2
+         iwinlo = int(ibatch - winwid / 2)
          if (iwinlo .lt. 1) then
             iwinlo = 1
          endif
@@ -160,7 +160,7 @@ c     $           rbsinv / dt, stinef(ibatch) * dt, rmovav
             iwinlo = iwinlo + 1
             go to 410
          endif
-         iwinhi = ibatch + winwid / 2
+         iwinhi = int(ibatch + winwid / 2)
          if (iwinhi .gt. nbatch) then
             iwinhi = nbatch
          endif
