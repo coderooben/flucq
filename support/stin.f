@@ -11,8 +11,8 @@ c
       character*80 datfil(mdatfl), filnam, stnfil, corfil
       integer      ibsize(mbatch)
 c$$$      logical      consfl
-      real*8       window(maxwin),
-     $             sum(mbatch), ssqbs(mbatch), 
+c$$$      real*8       window(maxwin)
+      real*8       sum(mbatch), ssqbs(mbatch),
      $             stinef(mbatch), corrf(mbatch),
      $             propa(mdatpt)
 c
