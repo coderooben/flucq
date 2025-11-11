@@ -76,7 +76,7 @@ c      read(iunit, err = 9990, iostat = ioval) rbuff
       read(iunit, iostat = ioval) rbuff
       iurdmp = ioval
       return
- 9990 write(iuout, *) 'iurdmp: error reading from unit ', iunit
+c 9990 write(iuout, *) 'iurdmp: error reading from unit ', iunit
       call ioerr(ioval)
       stop
       end
