@@ -401,7 +401,7 @@ c***********************************************************************
             write(iuout, *) 'rktavg = ', rktavg
             temp = dabs(rktavg - T)
             if (temp .gt. Ttol) then
-               neffbn = ntstep * dtbig / stint
+               neffbn = int(ntstep * dtbig / stint)
                write(iuout, *) 'neffbn = ', neffbn
                if (neffbn .gt. 1) then
                   rktvar = (rktssq / ntstep - rktavg ** 2) / 
@@ -553,35 +553,35 @@ c***********************************************************************
       if (ioiter) then
          if (moving) then
             do 1720 iatom = 1,natoms
-               rio(iatom) = pos(iatom,1)
+               rio(iatom) = sngl(pos(iatom,1))
  1720       continue
             do 1730 iatom = 1,natoms
-               rio(natoms + iatom) = pos(iatom,2)
+               rio(natoms + iatom) = sngl(pos(iatom,2))
  1730       continue
             do 1740 iatom = 1,natoms
-               rio(2 * natoms + iatom) = pos(iatom,3)
+               rio(2 * natoms + iatom) = sngl(pos(iatom,3))
  1740       continue
             do 1750 iatom = 1,natoms
-               rio(3 * natoms + iatom) = vel(iatom,1)
+               rio(3 * natoms + iatom) = sngl(vel(iatom,1))
  1750       continue
             do 1760 iatom = 1,natoms
-               rio(4 * natoms + iatom) = vel(iatom,2)
+               rio(4 * natoms + iatom) = sngl(vel(iatom,2))
  1760       continue
             do 1770 iatom = 1,natoms
-               rio(5 * natoms + iatom) = vel(iatom,3)
+               rio(5 * natoms + iatom) = sngl(vel(iatom,3))
  1770       continue
             do 1780 iatom = 1,natoms
-               rio(6 * natoms + iatom) = q(iatom)
+               rio(6 * natoms + iatom) = sngl(q(iatom))
  1780       continue
             do 1790 iatom = 1,natoms
-               rio(7 * natoms + iatom) = qvel(iatom)
+               rio(7 * natoms + iatom) = sngl(qvel(iatom))
  1790       continue
-            rio(8 * natoms + 1) = qke
-            rio(8 * natoms + 2) = qpe(ilight) + qpe(imixed) +
-     $           qpe(iheavy)
-            rio(8 * natoms + 3) = ake
-            rio(8 * natoms + 4) = ape(ilight) + ape(imixed) + 
-     $           ape(iheavy)
+            rio(8 * natoms + 1) = sngl(qke)
+            rio(8 * natoms + 2) = sngl(qpe(ilight) + qpe(imixed) +
+     $           qpe(iheavy))
+            rio(8 * natoms + 3) = sngl(ake)
+            rio(8 * natoms + 4) = sngl(ape(ilight) + ape(imixed) +
+     $           ape(iheavy))
             rio(8 * natoms + 5) = niters
             if (tscflg) then
                rio(8 * natoms + 6) = 1.
@@ -603,8 +603,8 @@ c$$$     $           wvirqa / 3. / vol * fpmd2a,
 c$$$     $           wvirk  / 3. / vol * fpmd2a,
 c$$$     $           wvirkd / 3. / vol * fpmd2a,
 c$$$     $           pressr * fpmd2a
-            rio(8 * natoms + 7) = pressr
-            rio(8 * natoms + 8) = dke
+            rio(8 * natoms + 7) = sngl(pressr)
+            rio(8 * natoms + 8) = sngl(dke)
             call irdump(iudyn, rio, idbyte / nspbyt)
             write(99,*) rnkbv * rketmp * fpmd2a, 
      $           (wvirlj(1) + wvirlj(2) + wvirlj(3)) /
