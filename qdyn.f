@@ -684,8 +684,6 @@ c$$$      endif
  9200 format(1x,'Charges equilibrated after ',i6,' charge steps')
  9300 format(1x,'RMS ',a,' energy conservation was ',g8.2)
       go to 9999
- 9980 write(iuout, *) 'qdyn: error writing to ', filnam
-      stop
  9990 write(iuout, *) 'qdyn: error opening ', filnam
       call ioerr(ioval)
       stop
