@@ -629,7 +629,7 @@ c***********************************************************************
 c     ndstep tells how many dynamics steps to run *after* the charge 
 c     dynamics and equilibration phases are over:
 c***********************************************************************
- 9900 continue
+c$$$ 9900 continue
       if (.not. eqflag .or. 
      $     ((vscflg .and. niters .lt. nscbas + ndstep) .or.
      $     (.not. vscflg .and. niters .lt. ndstep))) then
@@ -680,9 +680,9 @@ c$$$         close(21)
 c$$$         close(22)
 c$$$      endif
       close(99)
- 9100 format(1x,'Charges not equilibrated after ',i6,' charge steps')
- 9200 format(1x,'Charges equilibrated after ',i6,' charge steps')
- 9300 format(1x,'RMS ',a,' energy conservation was ',g8.2)
+c$$$ 9100 format(1x,'Charges not equilibrated after ',i6,' charge steps')
+c$$$ 9200 format(1x,'Charges equilibrated after ',i6,' charge steps')
+c$$$ 9300 format(1x,'RMS ',a,' energy conservation was ',g8.2)
       go to 9999
  9990 write(iuout, *) 'qdyn: error opening ', filnam
       call ioerr(ioval)
