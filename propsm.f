@@ -1014,7 +1014,7 @@ c     same image cell):
 c***********************************************************************
                if (trsflg) then
                   itrsbn = itrsbn + 1
- 1480             continue
+c$$$ 1480             continue
                   if (itrsbn .gt. maxtbn) then
                      itrsbn = itrsbn - maxtbn
                   else
