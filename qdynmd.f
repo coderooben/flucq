@@ -314,7 +314,7 @@ c     calculated in the old rattl2 subroutine.  I don't know which is
 c     wrong...
 c***********************************************************************
                   if (ioflg .and. 
-     $                 nioint * ((nciter + 1) / nioint) .eq. nciter + 1)
+     $                 nioint * ((niters + 1) / nioint) .eq. niters + 1)
      $                 then
                      wvirrv = wvirrv - 2.d0 * atmass(iaty1) * 
      $                    atmass(iaty2) * scalpc / dt * 
