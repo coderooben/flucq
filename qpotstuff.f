@@ -1378,9 +1378,10 @@ c
       include 'qpar'
       include 'commons'
 c
-      logical getnr, getfar, getlt, gethvy, incut, gete, 
-     $     doone, dotwo, dopr, domass, dodist
-c     
+      logical getnr, getfar, getlt, gethvy, incut, gete,
+     $     doone, dopr, domass, dodist
+c$$$      logical dotwo
+c
 c***********************************************************************
 c     Zero the various forces and energies that will be accumulated 
 c     here:
