@@ -600,12 +600,12 @@ c***********************************************************************
       if (ioval .eq. -1) then
          go to 9991
       endif
-      itrone = rio(8 * natoms + 5)
+      itrone = int(rio(8 * natoms + 5))
       ioval = iurdmp(iutmp, rio, idbyte / nspbyt)
       if (ioval .eq. -1) then
          go to 9991
       endif
-      itemp2 = rio(8 * natoms + 5)
+      itemp2 = int(rio(8 * natoms + 5))
       itrgap = itemp2 - itrone
       if (itrgap .le. 0) then
          write(iuout, *) 'props: 1st two records are weird...'
@@ -644,7 +644,7 @@ c***********************************************************************
                go to 9991
             endif
             write(iuout, *) 'read istop'
-            istop = rio(8 * natoms + 5)
+            istop = int(rio(8 * natoms + 5))
             close(iutmp)
          else
             istop = ibigp
@@ -695,7 +695,7 @@ c$$$  endif
          qpe(imixed) = rio(8 * natoms + 2)
          ake = rio(8 * natoms + 3)
          ape(imixed) = rio(8 * natoms + 4)
-         niters = rio(8 * natoms + 5)
+         niters = int(rio(8 * natoms + 5))
          rscale = rio(8 * natoms + 6)
          pressr = rio(8 * natoms + 7)
          dke = rio(8 * natoms + 8)
@@ -2353,11 +2353,11 @@ c
 c$$$         if (mask(iaty)) then
          if (masmsk(iaty,imass)) then
             ioxy = iatmol(imol,1)
-            nfold(imol,1) = anint((pos(ioxy,1) - boxby2(1)) / 
+            nfold(imol,1) = nint((pos(ioxy,1) - boxby2(1)) / 
      $           boxsiz(1))
-            nfold(imol,2) = anint((pos(ioxy,2) - boxby2(2)) / 
+            nfold(imol,2) = nint((pos(ioxy,2) - boxby2(2)) / 
      $           boxsiz(2))
-            nfold(imol,3) = anint((pos(ioxy,3) - boxby2(3)) / 
+            nfold(imol,3) = nint((pos(ioxy,3) - boxby2(3)) / 
      $           boxsiz(3))
             dx = nfold(imol,1) * boxsiz(1)
             dy = nfold(imol,2) * boxsiz(2)
