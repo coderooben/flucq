@@ -142,7 +142,7 @@ c$$$     $     defq(maxaty)
       common/respa/rspln
       common/simdat/symass, vol, hbox, fcutr, fcutd, fcutb, hvywt,
      $     fnearr, fneard,
-     $     boxsiz(3), boxby2(3), Efield(3), 
+     $     boxsiz(3), boxby2(3), hbonde, Efield(3),
      $     nmol, natoms, naty, nfqatm, nfqaty, iplint,
      $     nmaaty, nmatom, nrlaty, ndatom, nlatom, nhatom
       logical movlt, movhvy
