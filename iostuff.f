@@ -274,14 +274,14 @@ c
       write(iutmp, *, err = 9980, iostat = ioval)
      $     ewlflg, ewlkfl, ewsrfl, ewlkap, ewlkmx
       write(iutmp, 
-     .    '(f10.5,1x,f10.5,1x,i5,1x,f11.5,1x,l,i8,i8,f10.5,f11.5,1x,l)',
+     .  '(f10.5,1x,f10.5,1x,i5,1x,f11.5,1x,l1,i8,i8,f10.5,f11.5,1x,l1)',
      .     err = 9980, iostat = ioval) T, Ttol, nscint,stint, vscflg,
      .     nsceql, mxsceq, qT, qTrang, qvscfl
       write(iutmp, *, err = 9980, iostat = ioval) cbnflg, 
      $     dbflag, iseed, nioint, hbonde * fJm2kc, 
 cmov     $     gstinf,
      $     ocflag, (Efield(i), i = 1, 3)
-      write(iutmp, '(l,1x,l,1x,i8,1x,3a)', err = 9980, iostat = ioval) 
+      write(iutmp, '(l1,1x,l1,1x,i8,1x,3a)', err = 9980, iostat = ioval)
      .     ioflg, binflg, nbnint,
 cmov     $     iobwfl, 
      $     '''', suffix, ''''
