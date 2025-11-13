@@ -23,8 +23,8 @@ c     istatus = success (0 => success, 1 => singular matrix)
 
       integer n
       integer nrhs
-      real*8  a(nra,n)
       integer nra
+      real*8  a(nra,n)
       integer ipivot(n)
       real*8  b(n)
       integer nrb
