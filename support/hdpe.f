@@ -288,6 +288,6 @@ c***********************************************************************
       stop
  9990 write(iuout, *) 'rdsim: error opening ', filnam
       rdsim = ioval
-      return
+      stop
  9999 continue
       end
